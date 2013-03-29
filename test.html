@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JLite.Collection test</title>
+		<script type="text/javascript" src="JLite.Core.js" ></script>
+		<script type="text/javascript" src="JLite.Ext.js" ></script>
+		<script type="text/javascript">
+		
+		function fn(arg1,arg2){
+			var name="yanqizheng";
+			debugger;
+			function sub(e){
+				debugger;
+				var n1=12;
+				console.log(arg1);
+				arg1=55;
+				console.log(arg1);
+				console.log(name);
+				var name="qizheng";
+				console.log(name);
+			}
+			sub(true);
+			console.log(arg1);
+			console.log(name);
+		}
+		
+		function test(){
+			var list=[1,2,3,4];
+			var factor=2;
+			list.forEach(function(el,index){
+				console.log(el*factor);
+			});
+		}
+		
+		function createObject(fn,args){
+			var obj={};
+			for(var item in fn.prototype){
+				obj[item]=fn.prototype[item];
+			}
+			obj.constructor=fn.prototype.constructor;
+			fn.apply(obj,args);
+			return obj;
+		}
+		
+		function Student(name){
+			this.ID="10001";
+			this.base(name);
+		}
+		
+		function Person(name){
+			this.name=name;	
+		}
+
+		Person.prototype.speak=function(words){console.log(words);}
+		Person.prototype.greet=function(){console.log("Hello,I am "+this.name+"!");}
+		</script>
+	</head>
+	<body></body>
+</html>
